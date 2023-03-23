@@ -1,12 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <!-- -----------CSS------------- -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- -----------BOXICONS------------- -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
+
 <body>
-    
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="./assets/images/pro.jpeg" alt="">
+                </span>
+                <div class="text header-text">
+                    <span class="name">Hay12k</span>
+                    <span class="profession">Web developer</span>
+                </div>
+            </div>
+            <!-- <i class='bx bx-chevron-right toggle'></i> -->
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#" class="active">
+                            <i class='bx bxs-dashboard icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-category-alt icon'></i>
+                            <span class="text nav-text">Categories</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-cart-download icon'></i>
+                            <span class="text nav-text">Product</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-dollar icon'></i>
+                            <span class="text nav-text">Sells</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-user icon'></i>
+                            <span class="text nav-text">Manage Users</span>
+                        </a>
+                    </li>
+                    <!-- <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-group icon'></i>
+                            <span class="text nav-text">Customers</span>
+                        </a>
+                    </li> -->
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bxs-report icon'></i>
+                            <span class="text nav-text">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="topbar">
+            <i class='bx bx-menu toggle'></i>
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="Search Here">
+                    <i class='bx bx-search'></i>
+                </label>
+            </div>
+            <div class="user">
+                <img src="./assets/images/pro.jpeg" alt="">
+            </div>
+        </div>
+        <div class="text">Dashboard</div>
+    </div>
+
+
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
