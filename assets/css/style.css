@@ -314,3 +314,32 @@ body.dark .switch::before{
    height: 100%;
    object-fit: cover;
 }
+.main .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.main .cardBox .card{
+    position: relative;
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.cardBox .card .numbers{
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+}
+.cardBox .card .cardName{
+    color: var(--text-color);
+}
+.cardBox .card .iconBox{
+    font-size: 2.5em;
+    color: var(--text-color);
+}
