@@ -324,6 +324,16 @@ body.dark .switch::before{
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
+@media (max-width: 991px) {
+    .main .cardBox{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 676px){
+    .main .cardBox{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 .main .cardBox .card{
     position: relative;
     background: var(--primary-color-light);
@@ -334,10 +344,21 @@ body.dark .switch::before{
     cursor: pointer;
     transition: var(--tran-05);
 }
+.main .cardBox .card:hover{
+    background: var(--text-color);
+    color: var(--primary-color-light);
+    transition: var(--tran-05);
+}
+.main .cardBox .card:hover .numbers,
+.main .cardBox .card:hover .cardName,
+.main .cardBox .card:hover .iconBox{
+    color: var(--primary-color-light);
+}
 .cardBox .card .numbers{
     position: relative;
     font-size: 2em;
     font-weight: 500;
+    color: var(--text-color);
 }
 .cardBox .card .cardName{
     color: var(--text-color);
@@ -345,4 +366,109 @@ body.dark .switch::before{
 .cardBox .card .iconBox{
     font-size: 2.5em;
     color: var(--text-color);
+}
+.main .details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+@media (max-width: 991px) {
+    .main .details{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.details .recentOrders{
+    position: relative;
+    display: grid;
+    min-height: 530px;
+    background: var(--sidebar-color);
+    padding: 20px;
+    border-radius: 6px;
+}
+.details .cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2{
+    font-weight: 600;
+    color: var(--text-color);
+}
+.cardHeader .btn{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--body-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+.cardHeader .btn:hover{
+    background: var(--text-color);
+    color: var(--primary-color-light);
+}
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.details table thead td{
+    font-weight: 600;
+}
+.details .recentOrders table tr{
+    border-bottom: 1px solid var(--text-color);
+    transition: var(--tran-03);
+    color: var(--text-color);
+}
+.details .recentOrders table tbody tr:last-child{
+    border: none;
+}
+.details .recentOrders table tbody tr:hover{
+    background: var(--primary-color);
+    color: var(--primary-color-light);
+}
+.details .recentOrders table thead tr td:last-child,
+.details .recentOrders table tbody tr td:last-child{
+    text-align: right;
+}
+body.dark .details .recentOrders table tbody tr:hover{
+    color: var(--text-color);
+}
+body.dark .details .recentOrders tbody td span:last-child{
+    color: var(--text-color);
+}
+.details .recentOrders table tr td{
+    padding: 9px 5px;
+}
+.status{
+    position: relative;
+    padding: 2px 4px;
+    color: var(--primary-color-light);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.status.delivered{
+    background: #8de02c;
+}
+.status.pending{
+    background: #f9ca3f;
+}
+.status.return{
+    background: #f00;
+}
+.status.inprogress{
+    background: #1795ce;
+}
+.details .recentCustomers{
+    position: relative;
+    display: grid;
+    min-height: 530px;
+    background: var(--sidebar-color);
+    padding: 20px;
 }
