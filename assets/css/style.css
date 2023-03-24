@@ -23,7 +23,7 @@
 body.dark{
     --body-color: #18191a;
     --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
+    --primary-color: #695cfe;
     --primary-color-light: #3a383c;
     --toggle-color: #fff;
     --text-color: #ccc;
@@ -349,6 +349,35 @@ body.dark .switch::before{
     left: 10px;
     top: 2px;
     color: var(--text-color);
+}
+.main .left{
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
+.left .theme-Toggler{
+    background: var(--primary-color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+}
+.left .theme-Toggler span{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left .theme-Toggler span.active{
+    background: var(--primary-color);
+    color: var(--primary-color-light);
+    border-radius: 0.4rem;
 }
 .main .user{
     position: relative;
