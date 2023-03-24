@@ -49,8 +49,32 @@ body{
     transition: var(--tran-05);
     z-index: 100;
 }
-.sidebar.close{
+@media (max-width: 992px) {
+    .sidebar{
+        left: -300px;
+    }
+}
+@media (max-width: 480px){
+    .sidebar{
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+}
+.sidebar.active{
     width: 88px;
+}
+@media (max-width: 992px){
+    .sidebar.active{
+        left: 0;
+        width: 300px;
+    }
+}
+@media (max-width: 480px){
+    .sidebar.active{
+        width: 100%;
+        left: 0;
+    }
 }
 /* ====Reusable CSS==== */
 .sidebar .text{
@@ -61,8 +85,13 @@ body{
     white-space: nowrap;
     opacity: 1;
 }
-.sidebar.close .text{
+.sidebar.active .text{
     opacity: 0;
+}
+@media (max-width: 992px){
+    .sidebar.active .text{
+        opacity: 1;
+    } 
 }
 .sidebar .image{
     min-width: 60px;
@@ -123,12 +152,7 @@ body{
     font-size: 22px;
     transition: var(--tran-03);
 }
-.sidebar.close header .toggle{
-    transform: translateY(-50%);
-}
-body.dark .sidebar header .toggle{
-    color: var(--text-color);
-}
+
 .sidebar .menu{
     margin-top: 20px;
 }
@@ -248,15 +272,34 @@ body.dark .switch::before{
     transition: var(--tran-05);
     z-index: 101;
 }
+@media (max-width: 992px){
+    .main{
+        width: 100%;
+        left: 0;
+    }
+}
 .main .text{
     font-size: 30px;
     font-weight: 500;
     color: var(--text-color);
     padding: 8px 40px;
 }
-.sidebar.close ~ .main{
+.main.active{
     left: 88px;
     width: calc(100% - 88px);
+}
+@media (max-width: 992px){
+    .main.active{
+        left: 300px;
+        width: calc(100% - 300px);
+    }
+}
+@media (max-width: 480px){
+    .main,
+    .main.active{
+        width: 100%;
+        left: 0;
+    }
 }
 .main .topbar{
     width: 100%;
@@ -268,10 +311,18 @@ body.dark .switch::before{
     padding: 0 12px;
     transition: var(--tran-05);
 }
-.topbar i{
+.topbar .toggle{
     font-size: 35px;
     color: var(--text-color);
     cursor: pointer;
+}
+@media (max-width: 480px){
+    .topbar .toggle.active{
+        z-index: 10000;
+        right: 0;
+        left: initial;
+        position: fixed;
+    }
 }
 .main .search{
     position: relative;
@@ -298,6 +349,7 @@ body.dark .switch::before{
     font-size: 23px;
     left: 10px;
     top: 2px;
+    color: var(--text-color);
 }
 .main .user{
     position: relative;
@@ -324,12 +376,12 @@ body.dark .switch::before{
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .main .cardBox{
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width: 676px){
+@media (max-width: 480px){
     .main .cardBox{
         grid-template-columns: repeat(1, 1fr);
     }
@@ -373,9 +425,10 @@ body.dark .switch::before{
     padding: 20px;
     padding-top: 0;
     display: grid;
+    gap: 20px;
     grid-template-columns: 2fr 1fr;
 }
-@media (max-width: 991px) {
+@media (max-width: 768px) {
     .main .details{
         grid-template-columns: repeat(1, 1fr);
     }
@@ -383,11 +436,15 @@ body.dark .switch::before{
 
 .details .recentOrders{
     position: relative;
-    display: grid;
     min-height: 530px;
     background: var(--sidebar-color);
     padding: 20px;
     border-radius: 6px;
+}
+@media (max-width: 480px){
+    .details .recentOrders{
+        overflow-y: auto;
+    }
 }
 .details .cardHeader{
     display: flex;
@@ -397,6 +454,12 @@ body.dark .switch::before{
 .cardHeader h2{
     font-weight: 600;
     color: var(--text-color);
+}
+@media (max-width: 768px){
+    .cardHeader h2{
+        font-weight: 600;
+        font-size: 18px;
+    } 
 }
 .cardHeader .btn{
     position: relative;
@@ -418,6 +481,11 @@ body.dark .switch::before{
 }
 .details table thead td{
     font-weight: 600;
+}
+@media (max-width: 480px){
+    .details .recentOrders table{
+        width: 600px;
+    }
 }
 .details .recentOrders table tr{
     border-bottom: 1px solid var(--text-color);
@@ -467,8 +535,44 @@ body.dark .details .recentOrders tbody td span:last-child{
 }
 .details .recentCustomers{
     position: relative;
-    display: grid;
     min-height: 530px;
     background: var(--sidebar-color);
     padding: 20px;
+    border-radius: 6px;
+}
+.details .recentCustomers .imgBox{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.details .recentCustomers .imgBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.details .recentCustomers table tr td h4 span{
+    color: var(--text-color);
+    font-size: 14px;
+}
+.details .recentCustomers table tr:hover,
+.details .recentCustomers table tr:hover td h4 span{
+    background: var(--primary-color);
+    color: var(--primary-color-light);
+}
+.details .recentCustomers table tr td{
+    padding: 7px 10px;
+}
+.details .recentCustomers table tr td h4{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+.details .recentCustomers table tr td h4 span{
+    color: var(--text-color);
+    font-size: 14px;
 }
